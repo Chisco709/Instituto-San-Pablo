@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  test-db:
+    image: postgres:17.0
+    ports:
+      - "5433:5432"  # Diferente puerto para no interferir con la BD de desarrollo
+    environment:
+      - POSTGRES_PASSWORD=test_password
+      - POSTGRES_USER=test_user
+      - POSTGRES_DB=test_db
+    volumes:
+      - pgdata_test:/var/lib/postgresql/data
+volumes:
+  pgdata_test: 
